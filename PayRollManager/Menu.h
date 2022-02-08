@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sql.h>
 #include "sqlite3.h"
+#include "SqlManager.h"
 
 class Menu
 {

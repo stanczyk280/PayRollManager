@@ -13,7 +13,7 @@ SqlManager::~SqlManager()
 
 void SqlManager::SqlOpen(sqlite3* db)
 {
-	rc_ = sqlite3_open("pracownicy.db", &db);
+	rc_ = sqlite3_open("pracownicy.db", &db_);
 
 	if (rc_)
 	{
@@ -60,9 +60,7 @@ void SqlManager::InsertTablePracownicy(std::string imie, std::string nazwisko,
 	std::string insertTablePracownicyQuery = "INSERT INTO PRACOWNICY (" + imie + "," + nazwisko + ","
 		+ pesel + "," + status + "," + zarobki + ");";
 
-	const char* insertTablePracownicyQueryParsed = insertTablePracownicyQuery.c_str();
-
-	rc_ = sqlite3_exec(db_, insertTablePracownicyQueryParsed, NULL, 0, &zErrMsg_);
+	rc_ = sqlite3_exec(db_, insertTablePracownicyQuery.c_str(), NULL, 0, &zErrMsg_);
 
 	if (rc_ != SQLITE_OK) {
 		std::cout << "B£¥D SQL: " << zErrMsg_ << std::endl;
