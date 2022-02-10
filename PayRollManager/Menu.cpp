@@ -82,9 +82,11 @@ void Menu::menuGlowne()
 		switch (wyborUzytkownika)
 		{
 		case 1:
+			system("cls");
 			menuStworz(MenuTypeEnum::Pracownik);
 			break;
 		case 2:
+			system("cls");
 			menuStworz(MenuTypeEnum::Wyplata);
 			break;
 		case 3:
@@ -106,7 +108,6 @@ void Menu::menuGlowne()
 
 void Menu::menuPracownik()
 {
-	std::string imie, nazwisko, pesel, status, zarobki;
 	int running = 1;
 	int wyborUzytkownika;
 
@@ -118,34 +119,31 @@ void Menu::menuPracownik()
 		switch (wyborUzytkownika)
 		{
 		case 1:
-			std::cout << "Wprowadz imiê pracownika: ";
-			std::cin >> imie;
-			std::cout << std::endl << "Wprowadz imiê nazwisko: ";
-			std::cin >> nazwisko;
-			std::cout << std::endl << "Wprowadz imiê pesel pracownika: ";
-			std::cin >> pesel;
-			std::cout << std::endl << "Wprowadz imiê status pracownika: ";
-			std::cin >> status;
-			std::cout << std::endl << "Wprowadz imiê zarobki pracownika: ";
-			std::cin >> zarobki;
-			InsertTablePracownicy(imie, nazwisko, pesel, status, zarobki);
+			std::cout << "1" << std::endl;
+			system("cls");
 			break;
 		case 2:
 			std::cout << "wyswietl pracownika" << std::endl;
+			system("cls");
 			break;
 		case 3:
-			SelectFromTablePracownicy();
+			std::cout << "3" << std::endl;
+			system("cls");
 			break;
 		case 4:
 			std::cout << "usun pracownika" << std::endl;
+			system("cls");
 			break;
 		case 5:
 			std::cout << "edytuj info" << std::endl;
+			system("cls");
 			break;
 		case 6:
 			std::cout << "rozliczenie" << std::endl;
+			system("cls");
 			break;
 		case 7:
+			system("cls");
 			running = 0;
 			break;
 		default:
@@ -169,14 +167,18 @@ void Menu::menuWyplata()
 		{
 		case 1:
 			std::cout << "PRZELICZ ZAROBKI" << std::endl;
+			system("cls");
 			break;
 		case 2:
 			std::cout << "WYLICZ PODATEK" << std::endl;
+			system("cls");
 			break;
 		case 3:
 			std::cout << "WYDRUK" << std::endl;
+			system("cls");
 			break;
 		case 4:
+			system("cls");
 			running = 0;
 			break;
 		default:

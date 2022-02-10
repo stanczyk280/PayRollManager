@@ -1,6 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include "Menu.h"
 #include "sqlite/sqlite3.h"
 
 class SqlManager
