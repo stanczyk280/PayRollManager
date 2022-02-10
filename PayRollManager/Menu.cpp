@@ -120,6 +120,7 @@ void Menu::menuPracownik()
 		{
 		case 1:
 			std::cout << "1" << std::endl;
+			DodajPracownika();
 			system("cls");
 			break;
 		case 2:
@@ -127,7 +128,7 @@ void Menu::menuPracownik()
 			system("cls");
 			break;
 		case 3:
-			std::cout << "3" << std::endl;
+			WyswietlListePracownikow();
 			system("cls");
 			break;
 		case 4:

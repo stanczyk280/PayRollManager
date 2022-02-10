@@ -1,8 +1,8 @@
-#include "Menu.h"
+#include "SqlManager.h"
 
 int main()
 {
-	Menu m = Menu();
+	Menu m;
 	m.menuStworz(MenuTypeEnum::Glowne);
 	return 0;
 }

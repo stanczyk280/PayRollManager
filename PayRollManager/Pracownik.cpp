@@ -9,11 +9,15 @@ Pracownik::Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char
 	this->zarobki_ = zarobki;
 }
 
+Pracownik::Pracownik()
+{
+}
+
 Pracownik::~Pracownik()
 {
 }
 
-void Pracownik::dodajPracownika(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki)
+void Pracownik::DodajPracownika()
 {
 	std::cout << "WprowadŸ dane pracownika:" << std::endl;
 	std::cout << "Imiê: ";
@@ -31,4 +35,11 @@ void Pracownik::dodajPracownika(char* imie, char* nazwisko, char* pesel, char* s
 	std::cout << "Rodzaj umowy: ";
 	std::cin >> zarobki_;
 	std::cout << std::endl;
+	InsertTablePracownicy(imie_, nazwisko_,
+		pesel_, status_, zarobki_);
+}
+
+void Pracownik::WyswietlListePracownikow()
+{
+	SelectFromTablePracownicy();
 }

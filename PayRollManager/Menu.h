@@ -1,13 +1,10 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <vector>
-#include "MenuTypeEnum.h"
 #include "SqlManager.h"
 
-class Menu
+class Menu : public Pracownik
 {
 public:
+	Menu();
 	void wyswietlMenuGlowne();
 	void wyswietlMenuPracownik();
 	void wyswietlMenuWyplata();

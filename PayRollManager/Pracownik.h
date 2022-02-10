@@ -1,14 +1,15 @@
 #pragma once
-#include "Menu.h"
+#include "SqlManager.h"
 
-class Pracownik
+class Pracownik : public SqlManager
 {
 public:
 	Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki);
 	~Pracownik();
-	void dodajPracownika(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki);
-	void usunPracownika();
-	void modyfikujPracownika();
+	void DodajPracownika();
+	void WyswietlListePracownikow();
+	void UsunPracownika();
+	void ModyfikujPracownika();
 protected:
 	char* imie_;
 	char* nazwisko_;
