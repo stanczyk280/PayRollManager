@@ -1,13 +1,14 @@
 #pragma once
-#include "Menu.h"
-#include "Pracownik.h"
+#include <iostream>
+#include <string>
+#include "sqlite/sqlite3.h"
 
 class SqlManager
 {
 public:
 	SqlManager(sqlite3* db, char* zErrMsg, int rc);
 	void SqlOpen(sqlite3* db);
-	int Callback(void* data, int argc, char** argv, char** zColName);
+	static int Callback(void* data, int argc, char** argv, char** zColName);
 	void CreateTablePracownicy();
 	void InsertTablePracownicy(std::string imie, std::string nazwisko,
 		std::string pesel, std::string status, std::string zarobki);

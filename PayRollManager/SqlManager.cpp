@@ -45,7 +45,7 @@ void SqlManager::CreateTablePracownicy()
 		"STATUS         CHAR[50] NOT NULL," \
 		"ZAROBKI        REAL     NOT NULL);";
 
-	rc_ = sqlite3_exec(db_, createTablePracownicyQuery, NULL, 0, &zErrMsg_);
+	rc_ = sqlite3_exec(db_, createTablePracownicyQuery, this->Callback, 0, &zErrMsg_);
 
 	if (rc_ != SQLITE_OK) {
 		std::cout << "B£¥D SQL: " << zErrMsg_ << std::endl;
@@ -67,7 +67,24 @@ void SqlManager::InsertTablePracownicy(std::string imie, std::string nazwisko,
 	std::string insertTablePracownicyQuery = "INSERT INTO PRACOWNICY (" + imie + "," + nazwisko + ","
 		+ pesel + "," + status + "," + zarobki + ");";
 
-	rc_ = sqlite3_exec(db_, insertTablePracownicyQuery.c_str(), NULL, 0, &zErrMsg_);
+	rc_ = sqlite3_exec(db_, insertTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
+
+	if (rc_ != SQLITE_OK) {
+		std::cout << "B£¥D SQL: " << zErrMsg_ << std::endl;
+		sqlite3_free(zErrMsg_);
+	}
+	else
+	{
+		std::cout << "Dane zosta³y dodane pomyœlnie." << std::endl;
+	}
+	sqlite3_close(db_);
+}
+
+void SqlManager::SelectFromTablePracownicy()
+{
+	SqlOpen(db_);
+	std::string SelectFromTablePracownicyQuery = " SELECT * FROM PRACOWNICY;";
+	rc_ = sqlite3_exec(db_, SelectFromTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
 
 	if (rc_ != SQLITE_OK) {
 		std::cout << "B£¥D SQL: " << zErrMsg_ << std::endl;

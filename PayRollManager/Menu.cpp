@@ -106,8 +106,8 @@ void Menu::menuGlowne()
 
 void Menu::menuPracownik()
 {
+	std::string imie, nazwisko, pesel, status, zarobki;
 	int running = 1;
-	char potwierdz;
 	int wyborUzytkownika;
 
 	do
@@ -118,13 +118,23 @@ void Menu::menuPracownik()
 		switch (wyborUzytkownika)
 		{
 		case 1:
-			std::cout << "nowy pracownik" << std::endl;
+			std::cout << "Wprowadz imiê pracownika: ";
+			std::cin >> imie;
+			std::cout << std::endl << "Wprowadz imiê nazwisko: ";
+			std::cin >> nazwisko;
+			std::cout << std::endl << "Wprowadz imiê pesel pracownika: ";
+			std::cin >> pesel;
+			std::cout << std::endl << "Wprowadz imiê status pracownika: ";
+			std::cin >> status;
+			std::cout << std::endl << "Wprowadz imiê zarobki pracownika: ";
+			std::cin >> zarobki;
+			InsertTablePracownicy(imie, nazwisko, pesel, status, zarobki);
 			break;
 		case 2:
 			std::cout << "wyswietl pracownika" << std::endl;
 			break;
 		case 3:
-			std::cout << "lista pracownikow" << std::endl;
+			SelectFromTablePracownicy();
 			break;
 		case 4:
 			std::cout << "usun pracownika" << std::endl;
@@ -148,7 +158,6 @@ void Menu::menuPracownik()
 void Menu::menuWyplata()
 {
 	int running = 1;
-	char potwierdz;
 	int wyborUzytkownika;
 
 	do
@@ -164,7 +173,7 @@ void Menu::menuWyplata()
 		case 2:
 			std::cout << "WYLICZ PODATEK" << std::endl;
 			break;
-		case3:
+		case 3:
 			std::cout << "WYDRUK" << std::endl;
 			break;
 		case 4:

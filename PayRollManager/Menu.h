@@ -1,14 +1,12 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include <vector>
 #include "MenuTypeEnum.h"
-#include "sqlite/sqlite3.h"
 #include "SqlManager.h"
 
-class Menu
+class Menu : SqlManager
 {
 public:
+	Menu();
 	void wyswietlMenuGlowne();
 	void wyswietlMenuPracownik();
 	void wyswietlMenuWyplata();
