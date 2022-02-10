@@ -6,11 +6,12 @@ class SqlManager
 {
 public:
 	SqlManager(sqlite3* db, char* zErrMsg, int rc);
-	~SqlManager();
 	void SqlOpen(sqlite3* db);
+	int Callback(void* data, int argc, char** argv, char** zColName);
 	void CreateTablePracownicy();
 	void InsertTablePracownicy(std::string imie, std::string nazwisko,
 		std::string pesel, std::string status, std::string zarobki);
+	void SelectFromTablePracownicy();
 protected:
 	sqlite3* db_;
 	char* zErrMsg_ = 0;

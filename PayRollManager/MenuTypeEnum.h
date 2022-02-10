@@ -1,10 +1,7 @@
 #pragma once
-enum class TypeEnum
+enum class MenuTypeEnum
 {
 	Glowne,
 	Pracownik,
-	Wyplata,
-	OPrace,
-	Zlecenie,
-	Dzielo
+	Wyplata
 };

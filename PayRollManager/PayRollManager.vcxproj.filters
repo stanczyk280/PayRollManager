@@ -33,7 +33,7 @@
     <ClCompile Include="SqlManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sqlite3.c">
+    <ClCompile Include="sqlite\sqlite3.c">
       <Filter>thirdparty</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,11 +47,11 @@
     <ClInclude Include="Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sqlite3.h">
-      <Filter>thirdparty</Filter>
-    </ClInclude>
     <ClInclude Include="SqlManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\sqlite3.h">
+      <Filter>thirdparty</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

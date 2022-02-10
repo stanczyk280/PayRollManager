@@ -2,7 +2,7 @@
 
 int main()
 {
-	Menu m;
-	m.menuStworz(TypeEnum::Glowne);
+	Menu m = Menu();
+	m.menuStworz(MenuTypeEnum::Glowne);
 	return 0;
 }

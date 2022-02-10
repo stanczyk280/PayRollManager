@@ -4,11 +4,11 @@ void Menu::wyswietlMenuGlowne()
 {
 	std::vector<const char*> zawartoscMenu =
 	{
-	 "PAYROLL MANAGER SYSTEM",
-	 "WYBIERZ JEDNA Z OPCJI Z LISTY PONIZEJ",
-	 "1. MENU PRACOWNIK",
-	 "2. MENU WYPLATA",
-	 "3. ZAKONCZ",
+		 "PAYROLL MANAGER SYSTEM",
+		 "WYBIERZ JEDNA Z OPCJI Z LISTY PONIZEJ",
+		 "1. MENU PRACOWNIK",
+		 "2. MENU WYPLATA",
+		 "3. ZAKONCZ",
 	};
 	wyswietlMenu(zawartoscMenu);
 }
@@ -17,15 +17,15 @@ void Menu::wyswietlMenuPracownik()
 {
 	std::vector<const char*> zawartoscMenu =
 	{
-	"MENU: PRACOWNICY",
-	"WYBIERZ JEDNA Z OPCJI Z LISTY PONIZEJ",
-	"1. NOWY PRACOWNIK",
-	"2. WYSWIETL PRACOWNIKA",
-	"3. LISTA PRACOWNIKOW",
-	"4. USUN PRACOWNIKA",
-	"5. EDYTUJ INFORMACJE PRACOWNIKA",
-	"6. ROZLICZENIE",
-	"7. POWROT",
+		"MENU: PRACOWNICY",
+		"WYBIERZ JEDNA Z OPCJI Z LISTY PONIZEJ",
+		"1. NOWY PRACOWNIK",
+		"2. WYSWIETL PRACOWNIKA",
+		"3. LISTA PRACOWNIKOW",
+		"4. USUN PRACOWNIKA",
+		"5. EDYTUJ INFORMACJE PRACOWNIKA",
+		"6. ROZLICZENIE",
+		"7. POWROT",
 	};
 	wyswietlMenu(zawartoscMenu);
 }
@@ -34,12 +34,12 @@ void Menu::wyswietlMenuWyplata()
 {
 	std::vector<const char*> zawartoscMenu =
 	{
-	"MENU: WYPLATA",
-	"WYBIERZ JEDNA Z OPCJI Z LISTY PONIZEJ",
-	"1. PRZELICZ ZAROBKI",
-	"2. WYLICZ PODATEK",
-	"3. WYDRUKUJ ROZLICZENIE",
-	"4. POWROT",
+		"MENU: WYPLATA",
+		"WYBIERZ JEDNA Z OPCJI Z LISTY PONIZEJ",
+		"1. PRZELICZ ZAROBKI",
+		"2. WYLICZ PODATEK",
+		"3. WYDRUKUJ ROZLICZENIE",
+		"4. POWROT",
 	};
 	wyswietlMenu(zawartoscMenu);
 }
@@ -52,17 +52,17 @@ void Menu::wyswietlMenu(std::vector<const char*> zawartoscMenu)
 	}
 }
 
-void Menu::menuStworz(TypeEnum menuType)
+void Menu::menuStworz(MenuTypeEnum menuType)
 {
 	switch (menuType)
 	{
-	case TypeEnum::Glowne:
+	case MenuTypeEnum::Glowne:
 		menuGlowne();
 		break;
-	case TypeEnum::Pracownik:
+	case MenuTypeEnum::Pracownik:
 		menuPracownik();
 		break;
-	case TypeEnum::Wyplata:
+	case MenuTypeEnum::Wyplata:
 		menuWyplata();
 		break;
 	}
@@ -82,12 +82,10 @@ void Menu::menuGlowne()
 		switch (wyborUzytkownika)
 		{
 		case 1:
-			menuStworz(TypeEnum::Pracownik);
-			running = 0;
+			menuStworz(MenuTypeEnum::Pracownik);
 			break;
 		case 2:
-			menuStworz(TypeEnum::Wyplata);
-			running = 0;
+			menuStworz(MenuTypeEnum::Wyplata);
 			break;
 		case 3:
 			std::cout << "Czy chcesz zakonczyc prace" << std::endl << "T/N" << std::endl;
@@ -138,15 +136,7 @@ void Menu::menuPracownik()
 			std::cout << "rozliczenie" << std::endl;
 			break;
 		case 7:
-			std::cout << "Czy chcesz powrocic do poprzedniego menu" << std::endl << "T/N" << std::endl;
-			std::cin >> potwierdz;
-			if (potwierdz == 'T' || potwierdz == 't')
-			{
-				menuStworz(TypeEnum::Glowne);
-				running = 0;
-				break;
-			}
-			running = 1;
+			running = 0;
 			break;
 		default:
 			running = 1;
@@ -178,15 +168,7 @@ void Menu::menuWyplata()
 			std::cout << "WYDRUK" << std::endl;
 			break;
 		case 4:
-			std::cout << "Czy chcesz powrocic do poprzedniego menu" << std::endl << "T/N" << std::endl;
-			std::cin >> potwierdz;
-			if (potwierdz == 'T' || potwierdz == 't')
-			{
-				menuStworz(TypeEnum::Glowne);
-				running = 0;
-				break;
-			}
-			running = 1;
+			running = 0;
 			break;
 		default:
 			running = 1;

@@ -7,10 +7,6 @@ SqlManager::SqlManager(sqlite3* db, char* zErrMsg, int rc)
 	this->rc_ = rc;
 }
 
-SqlManager::~SqlManager()
-{
-}
-
 void SqlManager::SqlOpen(sqlite3* db)
 {
 	rc_ = sqlite3_open("pracownicy.db", &db_);
@@ -23,6 +19,17 @@ void SqlManager::SqlOpen(sqlite3* db)
 	{
 		std::cout << "Uda³o siê po³¹czyæ z baz¹ danych";
 	}
+}
+
+int SqlManager::Callback(void* data, int argc, char** argv, char** zColName)
+{
+	for (int i = 0; i < argc; i++)
+	{
+		std::cout << zColName[i] << ";" << (argv[i] ? argv[i] : "NULL") << std::endl;
+	}
+	std::cout << std::endl;
+
+	return 0;
 }
 
 void SqlManager::CreateTablePracownicy()

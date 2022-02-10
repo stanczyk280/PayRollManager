@@ -143,13 +143,13 @@
     <ClCompile Include="MenuTypeEnum.h" />
     <ClCompile Include="Pracownik.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="sqlite3.c" />
+    <ClCompile Include="sqlite\sqlite3.c" />
     <ClCompile Include="SqlManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Pracownik.h" />
-    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="sqlite\sqlite3.h" />
     <ClInclude Include="SqlManager.h" />
     <ClInclude Include="Wyplata.h" />
   </ItemGroup>
