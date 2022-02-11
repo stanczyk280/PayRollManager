@@ -21,6 +21,7 @@ public:
 	void SelectFromTablePracownicy(std::string pesel);
 	void SelectAllFromTablePracownicy();
 	void DeleteFromTable(std::string pesel);
+	void ModifyInTable(std::string pesel, std::string data, std::string col);
 protected:
 	sqlite3* db_;
 	char* zErrMsg_ = 0;

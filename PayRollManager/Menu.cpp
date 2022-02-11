@@ -136,7 +136,7 @@ void Menu::menuPracownik()
 			break;
 		case 5:
 			system("cls");
-			std::cout << "edytuj info" << std::endl;
+			pracownik.ModyfikujPracownika();
 			break;
 		case 6:
 			system("cls");

@@ -94,6 +94,7 @@ void SqlManager::SelectFromTablePracownicy(std::string pesel)
 {
 	SqlOpen(db_);
 	std::string SelectFromTablePracownicyQuery = " SELECT * FROM PRACOWNICY WHERE PESEL = " + pesel + ";";
+
 	rc_ = sqlite3_exec(db_, SelectFromTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
 
 	if (rc_ != SQLITE_OK) {
@@ -138,6 +139,24 @@ void SqlManager::DeleteFromTable(std::string pesel)
 	else
 	{
 		std::cout << "Dane zostaly usuniete pomyslnie" << std::endl;
+	}
+	sqlite3_close(db_);
+}
+
+void SqlManager::ModifyInTable(std::string pesel, std::string data, std::string col)
+{
+	SqlOpen(db_);
+	std::string ModifyInTableQuery = "UPDATE pracownicy SET " + col + " = '" + data + "' WHERE PESEL = " + pesel + "; ";
+
+	rc_ = sqlite3_exec(db_, ModifyInTableQuery.c_str(), this->Callback, 0, &zErrMsg_);
+
+	if (rc_ != SQLITE_OK) {
+		std::cout << "BLAD SQL: " << zErrMsg_ << std::endl;
+		sqlite3_free(zErrMsg_);
+	}
+	else
+	{
+		std::cout << "Dane zostaly zmodyfikowane pomyslnie" << std::endl;
 	}
 	sqlite3_close(db_);
 }

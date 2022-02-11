@@ -75,3 +75,107 @@ void Pracownik::UsunPracownika()
 	std::cin >> pesel_;
 	sqlmanager.DeleteFromTable(pesel_);
 }
+
+void Pracownik::ModyfikujPracownika()
+{
+	SqlManager sqlmanager;
+
+	int wyborUzytkownika;
+	char potwierdz;
+	int running = 1;
+	int finish = 1;
+	std::string data;
+	std::string col;
+
+	std::cout << "Wprowadz pesel pracownika, ktorego dane chcesz zmodyfikowac: " << std::endl;
+	std::cin >> pesel_;
+	sqlmanager.SelectFromTablePracownicy(pesel_);
+
+	do
+	{
+		std::cout << "Jaka rubryke edytowac? " << std::endl;
+		std::cout << "1. Imie " << std::endl;
+		std::cout << "2. Nazwisko " << std::endl;
+		std::cout << "3. Pesel " << std::endl;
+		std::cout << "4. Status " << std::endl;
+		std::cout << "5. Zarobki" << std::endl;
+		std::cout << "6. Zakoncz edycje" << std::endl;
+		std::cin >> wyborUzytkownika;
+
+		switch (wyborUzytkownika)
+		{
+		case 1:
+			system("cls");
+			col = "IMIE";
+			std::cout << "Wprowadz nowe imie pracownika: ";
+			std::cin >> data;
+			sqlmanager.ModifyInTable(pesel_, data, col);
+			system("cls");
+			sqlmanager.SelectFromTablePracownicy(pesel_);
+			break;
+		case 2:
+			system("cls");
+			col = "NAZWISKO";
+			std::cout << "Wprowadz nowe nazwisko pracownika: ";
+			std::cin >> data;
+			sqlmanager.ModifyInTable(pesel_, data, col);
+			system("cls");
+			sqlmanager.SelectFromTablePracownicy(pesel_);
+			break;
+		case 3:
+			system("cls");
+			col = "PESEL";
+			do
+			{
+				std::cout << "Wprowadz nowy pesel pracownika: ";
+				std::cin >> data;
+				if (data.length() != 11)
+				{
+					std::cout << std::endl << "Niepoprawny pesel! " << std::endl;
+				}
+				else
+				{
+					finish = 0;
+				}
+			} while (finish != 0);
+
+			sqlmanager.ModifyInTable(pesel_, data, col);
+			system("cls");
+			pesel_ = data;
+			sqlmanager.SelectFromTablePracownicy(pesel_);
+			break;
+		case 4:
+			system("cls");
+			col = "STATUS";
+			std::cout << "Wprowadz nowy status pracownika: ";
+			std::cin >> data;
+			sqlmanager.ModifyInTable(pesel_, data, col);
+			system("cls");
+			sqlmanager.SelectFromTablePracownicy(pesel_);
+			break;
+		case 5:
+			system("cls");
+			col = "ZAROBKI";
+			std::cout << "Wprowadz nowe zarobki pracownika: ";
+			std::cin >> data;;
+			sqlmanager.ModifyInTable(pesel_, data, col);
+			system("cls");
+			sqlmanager.SelectFromTablePracownicy(pesel_);
+			break;
+		case 6:
+			system("cls");
+			running = 0;
+			break;
+		default:
+			running = 1;
+			break;
+		}
+
+		std::cout << "Czy dalej chcesz modyfikowac dane pracownika?" << std::endl << "T/N" << std::endl;
+		std::cin >> potwierdz;
+		if (potwierdz == 'n' || potwierdz == 'N')
+		{
+			running = 0;
+		}
+	} while (running != 0);
+}
