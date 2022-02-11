@@ -120,29 +120,29 @@ void Menu::menuPracownik()
 		switch (wyborUzytkownika)
 		{
 		case 1:
+			system("cls");
 			std::cout << "1" << std::endl;
 			p.DodajPracownika();
-			system("cls");
 			break;
 		case 2:
-			std::cout << "wyswietl pracownika" << std::endl;
 			system("cls");
+			std::cout << "wyswietl pracownika" << std::endl;
 			break;
 		case 3:
-			p.WyswietlListePracownikow();
 			system("cls");
+			p.WyswietlListePracownikow();
 			break;
 		case 4:
-			std::cout << "usun pracownika" << std::endl;
 			system("cls");
+			std::cout << "usun pracownika" << std::endl;
 			break;
 		case 5:
-			std::cout << "edytuj info" << std::endl;
 			system("cls");
+			std::cout << "edytuj info" << std::endl;
 			break;
 		case 6:
-			std::cout << "rozliczenie" << std::endl;
 			system("cls");
+			std::cout << "rozliczenie" << std::endl;
 			break;
 		case 7:
 			system("cls");
@@ -168,16 +168,16 @@ void Menu::menuWyplata()
 		switch (wyborUzytkownika)
 		{
 		case 1:
-			std::cout << "PRZELICZ ZAROBKI" << std::endl;
 			system("cls");
+			std::cout << "PRZELICZ ZAROBKI" << std::endl;
 			break;
 		case 2:
-			std::cout << "WYLICZ PODATEK" << std::endl;
 			system("cls");
+			std::cout << "WYLICZ PODATEK" << std::endl;
 			break;
 		case 3:
-			std::cout << "WYDRUK" << std::endl;
 			system("cls");
+			std::cout << "WYDRUK" << std::endl;
 			break;
 		case 4:
 			system("cls");

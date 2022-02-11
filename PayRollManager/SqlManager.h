@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include "MenuTypeEnum.h"
-#include "sqlite/sqlite3.h"
+#include "sqlite3.h"
 #include "Menu.h"
 #include "Pracownik.h"
 
