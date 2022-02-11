@@ -24,8 +24,7 @@ void Menu::wyswietlMenuPracownik()
 		"3. LISTA PRACOWNIKOW",
 		"4. USUN PRACOWNIKA",
 		"5. EDYTUJ INFORMACJE PRACOWNIKA",
-		"6. ROZLICZENIE",
-		"7. POWROT",
+		"6. POWROT",
 	};
 	wyswietlMenu(zawartoscMenu);
 }
@@ -121,12 +120,11 @@ void Menu::menuPracownik()
 		{
 		case 1:
 			system("cls");
-			std::cout << "1" << std::endl;
 			pracownik.DodajPracownika();
 			break;
 		case 2:
 			system("cls");
-			std::cout << "wyswietl pracownika" << std::endl;
+			pracownik.WyswietlPracownika();
 			break;
 		case 3:
 			system("cls");
@@ -134,17 +132,13 @@ void Menu::menuPracownik()
 			break;
 		case 4:
 			system("cls");
-			std::cout << "usun pracownika" << std::endl;
+			pracownik.UsunPracownika();
 			break;
 		case 5:
 			system("cls");
 			std::cout << "edytuj info" << std::endl;
 			break;
 		case 6:
-			system("cls");
-			std::cout << "rozliczenie" << std::endl;
-			break;
-		case 7:
 			system("cls");
 			running = 0;
 			break;

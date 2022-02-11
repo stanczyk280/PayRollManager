@@ -20,6 +20,7 @@ Pracownik::~Pracownik()
 void Pracownik::DodajPracownika()
 {
 	SqlManager sqlmanager;
+	int running = 1;
 
 	std::cout << "WprowadŸ dane pracownika:" << std::endl;
 	std::cout << "Imie: ";
@@ -28,8 +29,19 @@ void Pracownik::DodajPracownika()
 	std::cout << "Nazwisko: ";
 	std::cin >> nazwisko_;
 	std::cout << std::endl;
-	std::cout << "Numer pesel: ";
-	std::cin >> pesel_;
+	do
+	{
+		std::cout << "Numer pesel: ";
+		std::cin >> pesel_;
+		if (pesel_.length() != 11)
+		{
+			std::cout << std::endl << "Niepoprawny pesel! " << std::endl;
+		}
+		else
+		{
+			running = 0;
+		}
+	} while (running != 0);
 	std::cout << std::endl;
 	std::cout << "Status(student/niepelnosprawny/zwykly: ";
 	std::cin >> status_;
@@ -41,8 +53,25 @@ void Pracownik::DodajPracownika()
 		pesel_, status_, zarobki_);
 }
 
+void Pracownik::WyswietlPracownika()
+{
+	SqlManager sqlmanager;
+	std::cout << "Wprowadz pesel pracownika, ktorego danego chcialbys wyswietlic: ";
+	std::cin >> pesel_;
+	sqlmanager.SelectFromTablePracownicy(pesel_);
+}
+
 void Pracownik::WyswietlListePracownikow()
 {
 	SqlManager sqlmanager;
-	sqlmanager.SelectFromTablePracownicy();
+	sqlmanager.SelectAllFromTablePracownicy();
+}
+
+void Pracownik::UsunPracownika()
+{
+	SqlManager sqlmanager;
+
+	std::cout << "Wprowadz pesel pracownika, ktorego chcialbys usunac z bazy danych: ";
+	std::cin >> pesel_;
+	sqlmanager.DeleteFromTable(pesel_);
 }

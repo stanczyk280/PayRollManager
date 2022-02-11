@@ -90,10 +90,10 @@ void SqlManager::InsertTablePracownicy(std::string imie, std::string nazwisko,
 	sqlite3_close(db_);
 }
 
-void SqlManager::SelectFromTablePracownicy()
+void SqlManager::SelectFromTablePracownicy(std::string pesel)
 {
 	SqlOpen(db_);
-	std::string SelectFromTablePracownicyQuery = " SELECT * FROM PRACOWNICY;";
+	std::string SelectFromTablePracownicyQuery = " SELECT * FROM PRACOWNICY WHERE PESEL = " + pesel + ";";
 	rc_ = sqlite3_exec(db_, SelectFromTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
 
 	if (rc_ != SQLITE_OK) {
@@ -103,6 +103,41 @@ void SqlManager::SelectFromTablePracownicy()
 	else
 	{
 		std::cout << "Dane zostaly wyswietlone pomyslnie" << std::endl;
+	}
+	sqlite3_close(db_);
+}
+
+void SqlManager::SelectAllFromTablePracownicy()
+{
+	SqlOpen(db_);
+	std::string SelectAllFromTablePracownicyQuery = " SELECT * FROM PRACOWNICY;";
+	rc_ = sqlite3_exec(db_, SelectAllFromTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
+
+	if (rc_ != SQLITE_OK) {
+		std::cout << "BLAD SQL: " << zErrMsg_ << std::endl;
+		sqlite3_free(zErrMsg_);
+	}
+	else
+	{
+		std::cout << "Dane zostaly wyswietlone pomyslnie" << std::endl;
+	}
+	sqlite3_close(db_);
+}
+
+void SqlManager::DeleteFromTable(std::string pesel)
+{
+	SqlOpen(db_);
+	std::string DeleteFromTableQuery = "DELETE FROM pracownicy WHERE PESEL = " + pesel + ";";
+
+	rc_ = sqlite3_exec(db_, DeleteFromTableQuery.c_str(), this->Callback, 0, &zErrMsg_);
+
+	if (rc_ != SQLITE_OK) {
+		std::cout << "BLAD SQL: " << zErrMsg_ << std::endl;
+		sqlite3_free(zErrMsg_);
+	}
+	else
+	{
+		std::cout << "Dane zostaly usuniete pomyslnie" << std::endl;
 	}
 	sqlite3_close(db_);
 }

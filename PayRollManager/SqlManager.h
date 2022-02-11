@@ -18,7 +18,9 @@ public:
 	void CreateTablePracownicy();
 	void InsertTablePracownicy(std::string imie, std::string nazwisko,
 		std::string pesel, std::string status, std::string zarobki);
-	void SelectFromTablePracownicy();
+	void SelectFromTablePracownicy(std::string pesel);
+	void SelectAllFromTablePracownicy();
+	void DeleteFromTable(std::string pesel);
 protected:
 	sqlite3* db_;
 	char* zErrMsg_ = 0;

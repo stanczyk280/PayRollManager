@@ -8,6 +8,7 @@ public:
 	Pracownik();
 	~Pracownik();
 	void DodajPracownika();
+	void WyswietlPracownika();
 	void WyswietlListePracownikow();
 	void UsunPracownika();
 	void ModyfikujPracownika();
