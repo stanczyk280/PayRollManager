@@ -21,11 +21,11 @@ void SqlManager::SqlOpen(sqlite3* db)
 
 	if (rc_)
 	{
-		std::cout << "Nie uda³o siê po³¹czyæ z baz¹ danych: " << sqlite3_errmsg(db) << std::endl;
+		std::cout << "Nie udalo sie polaczyæ z baza danych: " << sqlite3_errmsg(db) << std::endl;
 	}
 	else
 	{
-		std::cout << "Uda³o siê po³¹czyæ z baz¹ danych";
+		std::cout << "Udalo sie polaczyc z baza danych";
 	}
 }
 

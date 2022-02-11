@@ -1,6 +1,6 @@
 #include "SqlManager.h"
 
-Pracownik::Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki)
+Pracownik::Pracownik(std::string imie, std::string nazwisko, std::string pesel, std::string status, std::string zarobki)
 {
 	this->imie_ = imie;
 	this->nazwisko_ = nazwisko;
@@ -21,7 +21,7 @@ void Pracownik::DodajPracownika()
 {
 	SqlManager sqlmanager;
 	std::cout << "WprowadŸ dane pracownika:" << std::endl;
-	std::cout << "Imiê: ";
+	std::cout << "Imie: ";
 	std::cin >> imie_;
 	std::cout << std::endl;
 	std::cout << "Nazwisko: ";
@@ -30,7 +30,7 @@ void Pracownik::DodajPracownika()
 	std::cout << "Numer pesel: ";
 	std::cin >> pesel_;
 	std::cout << std::endl;
-	std::cout << "Status(student/niepe³nosprawny/zwyk³y: ";
+	std::cout << "Status(student/niepelnosprawny/zwykly: ";
 	std::cin >> status_;
 	std::cout << std::endl;
 	std::cout << "Rodzaj umowy: ";

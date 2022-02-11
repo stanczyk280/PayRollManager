@@ -4,7 +4,7 @@
 class Pracownik
 {
 public:
-	Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki);
+	Pracownik(std::string, std::string, std::string, std::string, std::string zarobki);
 	Pracownik();
 	~Pracownik();
 	void DodajPracownika();
@@ -12,9 +12,9 @@ public:
 	void UsunPracownika();
 	void ModyfikujPracownika();
 protected:
-	char* imie_;
-	char* nazwisko_;
-	char* pesel_;
-	char* status_;
-	char* zarobki_;
+	std::string imie_;
+	std::string nazwisko_;
+	std::string pesel_;
+	std::string status_;
+	std::string zarobki_;
 };
