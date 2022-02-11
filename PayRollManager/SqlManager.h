@@ -11,7 +11,7 @@ class SqlManager
 {
 public:
 	SqlManager(sqlite3* db, char* zErrMsg, int rc);
-	SqlManager() = default;
+	SqlManager();
 	~SqlManager();
 	void SqlOpen(sqlite3* db);
 	static int Callback(void* data, int argc, char** argv, char** zColName);

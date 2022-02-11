@@ -7,6 +7,10 @@ SqlManager::SqlManager(sqlite3* db, char* zErrMsg, int rc)
 	this->rc_ = rc;
 }
 
+SqlManager::SqlManager()
+{
+}
+
 void SqlManager::SqlOpen(sqlite3* db)
 {
 	rc_ = sqlite3_open("pracownicy.db", &db_);
