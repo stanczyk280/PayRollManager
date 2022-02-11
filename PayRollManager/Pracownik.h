@@ -1,7 +1,7 @@
 #pragma once
 #include "SqlManager.h"
 
-class Pracownik : public SqlManager
+class Pracownik
 {
 public:
 	Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki);

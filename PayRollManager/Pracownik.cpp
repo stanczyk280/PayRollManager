@@ -1,4 +1,5 @@
 #include "Pracownik.h"
+#include "SqlManager.h"
 
 Pracownik::Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki)
 {
@@ -7,10 +8,6 @@ Pracownik::Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char
 	this->pesel_ = pesel;
 	this->status_ = status;
 	this->zarobki_ = zarobki;
-}
-
-Pracownik::Pracownik()
-{
 }
 
 Pracownik::~Pracownik()

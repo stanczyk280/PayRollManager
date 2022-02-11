@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "Pracownik.h"
 
 void Menu::wyswietlMenuGlowne()
 {

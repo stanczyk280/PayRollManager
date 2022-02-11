@@ -1,7 +1,7 @@
 #pragma once
 #include "SqlManager.h"
 
-class Menu : public Pracownik
+class Menu
 {
 public:
 	Menu();
