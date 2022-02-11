@@ -110,7 +110,7 @@ void Menu::menuPracownik()
 {
 	int running = 1;
 	int wyborUzytkownika;
-	Pracownik p;
+	Pracownik pracownik;
 
 	do
 	{
@@ -122,7 +122,7 @@ void Menu::menuPracownik()
 		case 1:
 			system("cls");
 			std::cout << "1" << std::endl;
-			p.DodajPracownika();
+			pracownik.DodajPracownika();
 			break;
 		case 2:
 			system("cls");
@@ -130,7 +130,7 @@ void Menu::menuPracownik()
 			break;
 		case 3:
 			system("cls");
-			p.WyswietlListePracownikow();
+			pracownik.WyswietlListePracownikow();
 			break;
 		case 4:
 			system("cls");
