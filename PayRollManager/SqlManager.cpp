@@ -25,7 +25,7 @@ void SqlManager::SqlOpen(sqlite3* db)
 	}
 	else
 	{
-		std::cout << "Udalo sie polaczyc z baza danych";
+		std::cout << "Udalo sie polaczyc z baza danych" << std::endl;
 	}
 }
 
@@ -44,24 +44,22 @@ void SqlManager::CreateTablePracownicy()
 {
 	SqlOpen(db_);
 
-	const char* createTablePracownicyQuery =
-		"CREATE TABLE IF NOT EXISTS PRACOWNICY("  \
-		"ID INT PRIMARY KEY     NOT NULL," \
-		"IMIÊ           TEXT    NOT NULL," \
-		"NAZWISKO       TEXT    NOT NULL," \
-		"PESEL          CHAR[11] NOT NULL," \
-		"STATUS         CHAR[50] NOT NULL," \
-		"ZAROBKI        REAL     NOT NULL);";
-
+	const char* createTablePracownicyQuery = "CREATE TABLE IF NOT EXISTS PRACOWNICY("
+		"ID INT PRIMARY        KEY      NOT NULL,"
+		"IMIE                  TEXT     NOT NULL,"
+		"NAZWISKO              TEXT     NOT NULL,"
+		"PESEL                 TEXT     NOT NULL,"
+		"STATUS                TEXT     NOT NULL,"
+		"ZAROBKI               INT      NOT NULL);";
 	rc_ = sqlite3_exec(db_, createTablePracownicyQuery, this->Callback, 0, &zErrMsg_);
 
 	if (rc_ != SQLITE_OK) {
-		std::cout << "B£¥D SQL: " << zErrMsg_ << std::endl;
+		std::cout << "BLAD SQL: " << zErrMsg_ << std::endl;
 		sqlite3_free(zErrMsg_);
 	}
 	else
 	{
-		std::cout << "Tabela zosta³a utworzona pomyœlnie." << std::endl;
+		std::cout << "Tabela zostala utworzona pomyslnie." << std::endl;
 	}
 
 	sqlite3_close(db_);
@@ -72,18 +70,22 @@ void SqlManager::InsertTablePracownicy(std::string imie, std::string nazwisko,
 {
 	SqlOpen(db_);
 
-	std::string insertTablePracownicyQuery = "INSERT INTO PRACOWNICY (" + imie + "," + nazwisko + ","
-		+ pesel + "," + status + "," + zarobki + ");";
+	std::string insertTablePracownicyQuery = "INSERT INTO pracownicy (IMIE, NAZWISKO, PESEL, STATUS, ZAROBKI) VALUES ("
+		+ imie + ","
+		+ nazwisko + ","
+		+ pesel + ","
+		+ status + ","
+		+ zarobki + ");";
 
 	rc_ = sqlite3_exec(db_, insertTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
 
 	if (rc_ != SQLITE_OK) {
-		std::cout << "B£¥D SQL: " << zErrMsg_ << std::endl;
+		std::cout << "BLAD SQL: " << zErrMsg_ << std::endl;
 		sqlite3_free(zErrMsg_);
 	}
 	else
 	{
-		std::cout << "Dane zosta³y dodane pomyœlnie." << std::endl;
+		std::cout << "Dane zostaly dodane pomyslnie." << std::endl;
 	}
 	sqlite3_close(db_);
 }
@@ -95,12 +97,12 @@ void SqlManager::SelectFromTablePracownicy()
 	rc_ = sqlite3_exec(db_, SelectFromTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
 
 	if (rc_ != SQLITE_OK) {
-		std::cout << "B£¥D SQL: " << zErrMsg_ << std::endl;
+		std::cout << "BLAD SQL: " << zErrMsg_ << std::endl;
 		sqlite3_free(zErrMsg_);
 	}
 	else
 	{
-		std::cout << "Dane zosta³y dodane pomyœlnie." << std::endl;
+		std::cout << "Dane zostaly wyswietlone pomyslnie" << std::endl;
 	}
 	sqlite3_close(db_);
 }

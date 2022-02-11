@@ -20,6 +20,7 @@ Pracownik::~Pracownik()
 void Pracownik::DodajPracownika()
 {
 	SqlManager sqlmanager;
+
 	std::cout << "WprowadŸ dane pracownika:" << std::endl;
 	std::cout << "Imie: ";
 	std::cin >> imie_;
@@ -33,7 +34,7 @@ void Pracownik::DodajPracownika()
 	std::cout << "Status(student/niepelnosprawny/zwykly: ";
 	std::cin >> status_;
 	std::cout << std::endl;
-	std::cout << "Rodzaj umowy: ";
+	std::cout << "Zarobki: ";
 	std::cin >> zarobki_;
 	std::cout << std::endl;
 	sqlmanager.InsertTablePracownicy(imie_, nazwisko_,
