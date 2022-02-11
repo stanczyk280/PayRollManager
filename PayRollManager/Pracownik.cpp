@@ -13,6 +13,10 @@ Pracownik::Pracownik()
 {
 }
 
+Pracownik::~Pracownik()
+{
+}
+
 void Pracownik::DodajPracownika()
 {
 	SqlManager sqlmanager;

@@ -11,6 +11,10 @@ SqlManager::SqlManager()
 {
 }
 
+SqlManager::~SqlManager()
+{
+}
+
 void SqlManager::SqlOpen(sqlite3* db)
 {
 	rc_ = sqlite3_open("pracownicy.db", &db_);
