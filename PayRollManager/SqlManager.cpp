@@ -45,7 +45,7 @@ void SqlManager::CreateTablePracownicy()
 	SqlOpen(db_);
 
 	const char* createTablePracownicyQuery = "CREATE TABLE IF NOT EXISTS PRACOWNICY("
-		"ID INT PRIMARY        KEY      NOT NULL,"
+		"ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
 		"IMIE                  TEXT     NOT NULL,"
 		"NAZWISKO              TEXT     NOT NULL,"
 		"PESEL                 TEXT     NOT NULL,"
@@ -70,12 +70,12 @@ void SqlManager::InsertTablePracownicy(std::string imie, std::string nazwisko,
 {
 	SqlOpen(db_);
 
-	std::string insertTablePracownicyQuery = "INSERT INTO pracownicy (IMIE, NAZWISKO, PESEL, STATUS, ZAROBKI) VALUES ("
-		+ imie + ","
-		+ nazwisko + ","
-		+ pesel + ","
-		+ status + ","
-		+ zarobki + ");";
+	std::string insertTablePracownicyQuery = "INSERT INTO pracownicy (IMIE, NAZWISKO, PESEL, STATUS, ZAROBKI) VALUES ('"
+		+ imie + "','"
+		+ nazwisko + "','"
+		+ pesel + "','"
+		+ status + "','"
+		+ zarobki + "');";
 
 	rc_ = sqlite3_exec(db_, insertTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
 
