@@ -4,7 +4,6 @@
 class Menu
 {
 public:
-	Menu();
 	void wyswietlMenuGlowne();
 	void wyswietlMenuPracownik();
 	void wyswietlMenuWyplata();

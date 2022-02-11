@@ -1,5 +1,4 @@
-#include "Menu.h"
-#include "Pracownik.h"
+#include "SqlManager.h"
 
 void Menu::wyswietlMenuGlowne()
 {
@@ -111,6 +110,7 @@ void Menu::menuPracownik()
 {
 	int running = 1;
 	int wyborUzytkownika;
+	Pracownik p;
 
 	do
 	{
@@ -121,7 +121,7 @@ void Menu::menuPracownik()
 		{
 		case 1:
 			std::cout << "1" << std::endl;
-			DodajPracownika();
+			p.DodajPracownika();
 			system("cls");
 			break;
 		case 2:
@@ -129,7 +129,7 @@ void Menu::menuPracownik()
 			system("cls");
 			break;
 		case 3:
-			WyswietlListePracownikow();
+			p.WyswietlListePracownikow();
 			system("cls");
 			break;
 		case 4:

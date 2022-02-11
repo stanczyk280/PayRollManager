@@ -1,4 +1,3 @@
-#include "Pracownik.h"
 #include "SqlManager.h"
 
 Pracownik::Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki)
@@ -16,6 +15,7 @@ Pracownik::~Pracownik()
 
 void Pracownik::DodajPracownika()
 {
+	SqlManager sqlmanager;
 	std::cout << "WprowadŸ dane pracownika:" << std::endl;
 	std::cout << "Imiê: ";
 	std::cin >> imie_;
@@ -32,11 +32,12 @@ void Pracownik::DodajPracownika()
 	std::cout << "Rodzaj umowy: ";
 	std::cin >> zarobki_;
 	std::cout << std::endl;
-	InsertTablePracownicy(imie_, nazwisko_,
+	sqlmanager.InsertTablePracownicy(imie_, nazwisko_,
 		pesel_, status_, zarobki_);
 }
 
 void Pracownik::WyswietlListePracownikow()
 {
-	SelectFromTablePracownicy();
+	SqlManager sqlmanager;
+	sqlmanager.SelectFromTablePracownicy();
 }
