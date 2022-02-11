@@ -5,7 +5,6 @@ class Pracownik
 {
 public:
 	Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char* zarobki);
-	Pracownik();
 	~Pracownik();
 	void DodajPracownika();
 	void WyswietlListePracownikow();

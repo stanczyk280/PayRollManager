@@ -9,10 +9,6 @@ Pracownik::Pracownik(char* imie, char* nazwisko, char* pesel, char* status, char
 	this->zarobki_ = zarobki;
 }
 
-Pracownik::~Pracownik()
-{
-}
-
 void Pracownik::DodajPracownika()
 {
 	SqlManager sqlmanager;
