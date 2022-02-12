@@ -59,7 +59,7 @@ void SqlManager::CreateTablePracownicy()
 	}
 	else
 	{
-		std::cout << "Tabela zostala utworzona pomyslnie." << std::endl;
+		std::cout << "Polaczenie z tabela ustanowiono pomyslnie." << std::endl;
 	}
 
 	sqlite3_close(db_);
