@@ -1,5 +1,7 @@
 #include "SqlManager.h"
 
+SqlManager sqlmanager;
+
 Pracownik::Pracownik(std::string imie, std::string nazwisko, std::string pesel, std::string status, std::string zarobki)
 {
 	this->imie_ = imie;
@@ -19,7 +21,6 @@ Pracownik::~Pracownik()
 
 void Pracownik::DodajPracownika()
 {
-	SqlManager sqlmanager;
 	int running = 1;
 
 	std::cout << "WprowadŸ dane pracownika:" << std::endl;
@@ -55,7 +56,6 @@ void Pracownik::DodajPracownika()
 
 void Pracownik::WyswietlPracownika()
 {
-	SqlManager sqlmanager;
 	std::cout << "Wprowadz pesel pracownika, ktorego danego chcialbys wyswietlic: ";
 	std::cin >> pesel_;
 	sqlmanager.SelectFromTablePracownicy(pesel_);
@@ -63,14 +63,11 @@ void Pracownik::WyswietlPracownika()
 
 void Pracownik::WyswietlListePracownikow()
 {
-	SqlManager sqlmanager;
 	sqlmanager.SelectAllFromTablePracownicy();
 }
 
 void Pracownik::UsunPracownika()
 {
-	SqlManager sqlmanager;
-
 	std::cout << "Wprowadz pesel pracownika, ktorego chcialbys usunac z bazy danych: ";
 	std::cin >> pesel_;
 	sqlmanager.DeleteFromTable(pesel_);
@@ -78,8 +75,6 @@ void Pracownik::UsunPracownika()
 
 void Pracownik::ModyfikujPracownika()
 {
-	SqlManager sqlmanager;
-
 	int wyborUzytkownika;
 	char potwierdz;
 	int running = 1;
@@ -178,4 +173,19 @@ void Pracownik::ModyfikujPracownika()
 			running = 0;
 		}
 	} while (running != 0);
+}
+
+void Pracownik::WyswietlPodaneDane()
+{
+	std::string col;
+	std::string op;
+	std::string value;
+
+	std::cout << "Wprowadz rodzaj danych do wyswietlenia: " << std::endl;
+	std::cin >> col;
+	std::cout << "Wyswietl " + col + " gdzie wartosc jest (=, =<, =>, <, >, !=), wprowadz odpowiedni operator:" << std::endl;
+	std::cin >> op;
+	std::cout << "Wyswietl " + col + " gdzie wartosc jest " + op + " wprowadz wartosc wedlug, ktorej beda wyswietlane dane:" << std::endl;
+	std::cin >> value;
+	sqlmanager.SelectSpecificFromTable(col, value, op);
 }

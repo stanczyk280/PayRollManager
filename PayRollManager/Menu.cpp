@@ -24,7 +24,8 @@ void Menu::wyswietlMenuPracownik()
 		"3. LISTA PRACOWNIKOW",
 		"4. USUN PRACOWNIKA",
 		"5. EDYTUJ INFORMACJE PRACOWNIKA",
-		"6. POWROT",
+		"6. WYSWIETL WYBRANE DANE",
+		"7. POWROT",
 	};
 	wyswietlMenu(zawartoscMenu);
 }
@@ -140,6 +141,10 @@ void Menu::menuPracownik()
 			break;
 		case 6:
 			system("cls");
+			pracownik.WyswietlPodaneDane();
+			break;
+		case 7:
+			system("cls");
 			running = 0;
 			break;
 		default:
@@ -163,15 +168,15 @@ void Menu::menuWyplata()
 		{
 		case 1:
 			system("cls");
-			std::cout << "PRZELICZ ZAROBKI" << std::endl;
+			std::cout << "NOT IMPLEMENTED" << std::endl;
 			break;
 		case 2:
 			system("cls");
-			std::cout << "WYLICZ PODATEK" << std::endl;
+			std::cout << "NOT IMPLEMENTED" << std::endl;
 			break;
 		case 3:
 			system("cls");
-			std::cout << "WYDRUK" << std::endl;
+			std::cout << "NOT IMPLEMENTED" << std::endl;
 			break;
 		case 4:
 			system("cls");

@@ -20,6 +20,7 @@ public:
 		std::string pesel, std::string status, std::string zarobki);
 	void SelectFromTablePracownicy(std::string pesel);
 	void SelectAllFromTablePracownicy();
+	void SelectSpecificFromTable(std::string col, std::string value, std::string op);
 	void DeleteFromTable(std::string pesel);
 	void ModifyInTable(std::string pesel, std::string data, std::string col);
 protected:

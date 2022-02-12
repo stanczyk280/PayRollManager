@@ -12,6 +12,7 @@ public:
 	void WyswietlListePracownikow();
 	void UsunPracownika();
 	void ModyfikujPracownika();
+	void WyswietlPodaneDane();
 protected:
 	std::string imie_;
 	std::string nazwisko_;

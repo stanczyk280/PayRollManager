@@ -125,6 +125,25 @@ void SqlManager::SelectAllFromTablePracownicy()
 	sqlite3_close(db_);
 }
 
+void SqlManager::SelectSpecificFromTable(std::string col, std::string value, std::string op)
+{
+	SqlOpen(db_);
+	std::string SelectAllFromTablePracownicyQuery = " SELECT * FROM pracownicy WHERE " + col + " "
+		+ op + " '" + value + "';";
+
+	rc_ = sqlite3_exec(db_, SelectAllFromTablePracownicyQuery.c_str(), this->Callback, 0, &zErrMsg_);
+
+	if (rc_ != SQLITE_OK) {
+		std::cout << "BLAD SQL: " << zErrMsg_ << std::endl;
+		sqlite3_free(zErrMsg_);
+	}
+	else
+	{
+		std::cout << "Dane zostaly wyswietlone pomyslnie" << std::endl;
+	}
+	sqlite3_close(db_);
+}
+
 void SqlManager::DeleteFromTable(std::string pesel)
 {
 	SqlOpen(db_);
