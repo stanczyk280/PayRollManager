@@ -33,7 +33,7 @@ int SqlManager::Callback(void* data, int argc, char** argv, char** zColName)
 {
 	for (int i = 0; i < argc; i++)
 	{
-		std::cout << zColName[i] << ";" << (argv[i] ? argv[i] : "NULL") << std::endl;
+		std::cout << zColName[i] << ":" << (argv[i] ? argv[i] : "NULL") << std::endl;
 	}
 	std::cout << std::endl;
 
